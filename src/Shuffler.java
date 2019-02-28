@@ -53,13 +53,16 @@ public class Shuffler {
         int[] shuffled = new int[values.length];
         int k = 0;
         for (int j = 0; j < (values.length+ 1)/2; j ++){
-            values[j] = shuffled[k];
+            shuffled[j] = values[k];
             k += k+2;
         }
         k=1;
         for (int j =(values.length+1)/2; j < values.length; j++){
-            values [j] = shuffled[k];
+            shuffled[j] = values[k];
             k += k+2;
+        }
+        for(int a = 0; a < values.length; a++){
+            values[a] = shuffled[a];
         }
     }
 
@@ -82,7 +85,8 @@ public class Shuffler {
 	     while (values[j] ==0){
              j = (int) (Math.random()*51+1);
          }
-            
+         shuffled[k] = values[j];
+	     values[j] = 0;
      }
     }
 }
